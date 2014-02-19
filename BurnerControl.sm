@@ -1,4 +1,4 @@
-%start BurnerControlMap::Start
+%start BurnerControlMap::Off
 %class BurnerControl
 %header BurnerControl.h
 
@@ -6,25 +6,30 @@
 %%
 /*
 *
-State    Event        New State     Action(s)
+State    Event      New State   Action(s)
 *
 */
-Start
+Off
 {
-       OnPressed    WaitingForUpDownPress 
-                                    {
-                                        Action_StartLedAnnimation();
-                                    }
+       PowerButtonPressed
+                    WaitingForUpDownPress 
+                            {
+                                Action_StartLedAnnimation();
+                            }
 }
 
-for_some_reason_an_empty_state_seems_to_be_needed {}
+for_some_reason_some_event_must_have_a_state_where_the_state_must_not_react_to_the_event 
+{ 
+    foo Off {} 
+}
 
 WaitingForUpDownPress
 {
-       OnPressed       Start
-                                    {
-                                        Action_StopLedAnnimation();
-                                    }
+       PowerButtonPressed   
+                    Off
+                            {
+                                Action_StopLedAnnimation();
+                            }
 }
 
 %%

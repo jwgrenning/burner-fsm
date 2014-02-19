@@ -11,7 +11,7 @@ struct BurnerControl
 struct BurnerControl * BurnerControl_Create(void);
 void BurnerControl_Destroy(struct BurnerControl *);
 
-void BurnerControl_OnPressed(struct BurnerControl *);
+void BurnerControl_PowerButtonPressed(struct BurnerControl *);
 
 void BurnerControl_Action_StartLedAnnimation(struct BurnerControl *);
 void BurnerControl_Action_StopLedAnnimation(struct BurnerControl *);

@@ -27,14 +27,14 @@ TEST_GROUP(BurnerControlStartState)
 TEST(BurnerControlStartState, press_on_button_starts_annimation)
 {
     mock("burner").expectOneCall("BurnerControl_Action_StartLedAnnimation");
-    BurnerControl_OnPressed(burnerControl);
+    BurnerControl_PowerButtonPressed(burnerControl);
 }
 
 TEST(BurnerControlStartState, press_on_twice_stops_annimation)
 {
     mock("burner").expectOneCall("BurnerControl_Action_StartLedAnnimation");
     mock("burner").expectOneCall("BurnerControl_Action_StopLedAnnimation");
-    BurnerControl_OnPressed(burnerControl);
-    BurnerControl_OnPressed(burnerControl);
+    BurnerControl_PowerButtonPressed(burnerControl);
+    BurnerControl_PowerButtonPressed(burnerControl);
 }
 

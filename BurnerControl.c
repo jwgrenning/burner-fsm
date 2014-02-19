@@ -14,8 +14,8 @@ void BurnerControl_Destroy(struct BurnerControl * self)
     free(self);
 }
 
-void BurnerControl_OnPressed(struct BurnerControl * self)
+void BurnerControl_PowerButtonPressed(struct BurnerControl * self)
 {
-	BurnerControlContext_OnPressed(&self->_fsm);
+    BurnerControlContext_PowerButtonPressed(&self->_fsm);
 }
 
