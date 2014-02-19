@@ -17,9 +17,7 @@ Start
                                     }
 }
 
-Off
-{
-}
+for_some_reason_an_empty_state_seems_to_be_needed {}
 
 WaitingForUpDownPress
 {
