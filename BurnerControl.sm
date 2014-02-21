@@ -16,11 +16,13 @@ Off
                             {
                                 Action_StartLedAnnimation();
                             }
+       UpPressed
+                    nil
+                            {}
 }
 
 for_some_reason_some_event_must_have_a_state_where_the_state_must_not_react_to_the_event 
 { 
-    foo Off {} 
 }
 
 WaitingForUpDownPress
@@ -30,6 +32,23 @@ WaitingForUpDownPress
                             {
                                 Action_StopLedAnnimation();
                             }
+        UpPressed
+                    Heating
+                            {
+                                Action_StopLedAnnimation();
+                                Action_LedOn(8);
+                                Action_SetPowerTo(100);
+                            }
+}
+
+Heating
+{
+       PowerButtonPressed   
+                    Off     {}
+       UpPressed
+                    nil
+                            {}
+    
 }
 
 %%

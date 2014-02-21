@@ -38,3 +38,14 @@ TEST(BurnerControlStartState, press_on_twice_stops_annimation)
     BurnerControl_PowerButtonPressed(burnerControl);
 }
 
+TEST(BurnerControlStartState, press_on_then_up_full_power)
+{
+    mock("burner").expectOneCall("BurnerControl_Action_StartLedAnnimation");
+    mock("burner").expectOneCall("BurnerControl_Action_StopLedAnnimation");
+    mock("burner").expectOneCall("BurnerControl_Action_LedOn").withParameter("ledNumber", 8);
+    mock("burner").expectOneCall("BurnerControl_Action_SetPowerTo").withParameter("powerLevel", 100);
+
+    BurnerControl_PowerButtonPressed(burnerControl);
+    BurnerControl_UpPressed(burnerControl);
+}
+

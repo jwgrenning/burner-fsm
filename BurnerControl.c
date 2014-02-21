@@ -19,3 +19,8 @@ void BurnerControl_PowerButtonPressed(struct BurnerControl * self)
     BurnerControlContext_PowerButtonPressed(&self->_fsm);
 }
 
+void BurnerControl_UpPressed(struct BurnerControl * self)
+{
+    BurnerControlContext_UpPressed(&self->_fsm);
+}
+
