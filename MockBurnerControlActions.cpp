@@ -33,7 +33,7 @@ void BurnerControl_Action_LedUpOne(struct BurnerControl * self)
 
 void BurnerControl_Action_LedDownOne(struct BurnerControl * self)
 {
-//        mock("burner").actualCall("BurnerControl_Action_LedDownOne");
+        mock("burner").actualCall("BurnerControl_Action_LedDownOne");
 }
 
 void BurnerControl_Action_SetPowerTo(struct BurnerControl *, int powerLevel)
@@ -49,7 +49,7 @@ void BurnerControl_Action_PowerUpOneLevel(struct BurnerControl * self)
 
 void BurnerControl_Action_PowerDownOneLevel(struct BurnerControl * self)
 {
-//        mock("burner").actualCall("BurnerControl_Action_PowerDownOneLevel");
+        mock("burner").actualCall("BurnerControl_Action_PowerDownOneLevel");
 }
 
 }
