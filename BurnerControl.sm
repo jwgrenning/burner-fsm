@@ -1,4 +1,4 @@
-%start BurnerControlMap::Off
+%start BurnerControlMap::Start
 %class BurnerControl
 %header BurnerControl.h
 
@@ -9,7 +9,14 @@
 State    Event      New State   Action(s)
 *
 */
+Start
+{
+        Go          Off        {}
+}
+
 Off
+Entry {  Action_AllLedsOff(); Action_SetPowerTo(0); }
+
 {
        PowerButtonPressed
                     WaitingForUpDownPress 
@@ -19,6 +26,9 @@ Off
        UpPressed
                     nil
                             {}
+       DownPressed
+                    nil
+                            {}
 }
 
 for_some_reason_some_event_must_have_a_state_where_the_state_must_not_react_to_the_event 
@@ -26,23 +36,21 @@ for_some_reason_some_event_must_have_a_state_where_the_state_must_not_react_to_t
 }
 
 WaitingForUpDownPress
+Exit { Action_StopLedAnnimation(); }
 {
        PowerButtonPressed   
                     Off
                             {
-                                Action_StopLedAnnimation();
                             }
         UpPressed
                     Heating
                             {
-                                Action_StopLedAnnimation();
                                 Action_LedOn(8);
                                 Action_SetPowerTo(100);
                             }
         DownPressed
                     Heating
                             {
-                                Action_StopLedAnnimation();
                                 Action_LedOn(1);
                                 Action_SetPowerTo(10);
                             }
@@ -51,9 +59,10 @@ WaitingForUpDownPress
 Heating
 {
        PowerButtonPressed   
-                    Off     {}
+                    Off     {
+                            }
        UpPressed
-                    nil
+                    Heating
                             {}
     
        DownPressed

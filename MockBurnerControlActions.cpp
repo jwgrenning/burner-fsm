@@ -21,6 +21,11 @@ void BurnerControl_Action_LedOn(struct BurnerControl * self, int ledNumber)
                       .withParameter("ledNumber", ledNumber);
 }
 
+void BurnerControl_Action_AllLedsOff(struct BurnerControl * self)
+{
+        mock("burner").actualCall("BurnerControl_Action_AllLedsOff");
+}
+
 void BurnerControl_Action_SetPowerTo(struct BurnerControl *, int powerLevel)
 {
         mock("burner").actualCall("BurnerControl_Action_SetPowerTo")

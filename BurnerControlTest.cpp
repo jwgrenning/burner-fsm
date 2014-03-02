@@ -12,8 +12,11 @@ TEST_GROUP(BurnerControlStartState)
 
     void setup()
     {
-        burnerControl = BurnerControl_Create();
         mock("burner").strictOrder();
+        burnerControl = BurnerControl_Create();
+        mock("burner").expectOneCall("BurnerControl_Action_AllLedsOff");
+        mock("burner").expectOneCall("BurnerControl_Action_SetPowerTo").withParameter("powerLevel", 0);
+        BurnerControl_Go(burnerControl);
     }
 
     void teardown()
@@ -23,6 +26,10 @@ TEST_GROUP(BurnerControlStartState)
         mock().clear();
     }
 };
+
+TEST(BurnerControlStartState, initially_off)
+{
+}
 
 TEST(BurnerControlStartState, press_on_button_starts_annimation)
 {
@@ -34,6 +41,8 @@ TEST(BurnerControlStartState, press_on_twice_stops_annimation)
 {
     mock("burner").expectOneCall("BurnerControl_Action_StartLedAnnimation");
     mock("burner").expectOneCall("BurnerControl_Action_StopLedAnnimation");
+    mock("burner").expectOneCall("BurnerControl_Action_AllLedsOff");
+    mock("burner").expectOneCall("BurnerControl_Action_SetPowerTo").withParameter("powerLevel", 0);
     BurnerControl_PowerButtonPressed(burnerControl);
     BurnerControl_PowerButtonPressed(burnerControl);
 }
