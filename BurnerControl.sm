@@ -31,9 +31,11 @@ Entry {  Action_AllLedsOff(); Action_SetPowerTo(0); }
                             {}
 }
 
+/* no longer needed for some reason
 for_some_reason_some_event_must_have_a_state_where_the_state_must_not_react_to_the_event 
 { 
 }
+*/
 
 WaitingForUpDownPress
 Exit { Action_StopLedAnnimation(); }
