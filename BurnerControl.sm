@@ -39,6 +39,13 @@ WaitingForUpDownPress
                                 Action_LedOn(8);
                                 Action_SetPowerTo(100);
                             }
+        DownPressed
+                    Heating
+                            {
+                                Action_StopLedAnnimation();
+                                Action_LedOn(1);
+                                Action_SetPowerTo(10);
+                            }
 }
 
 Heating
@@ -46,6 +53,10 @@ Heating
        PowerButtonPressed   
                     Off     {}
        UpPressed
+                    nil
+                            {}
+    
+       DownPressed
                     nil
                             {}
     

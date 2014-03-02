@@ -24,3 +24,8 @@ void BurnerControl_UpPressed(struct BurnerControl * self)
     BurnerControlContext_UpPressed(&self->_fsm);
 }
 
+void BurnerControl_DownPressed(struct BurnerControl * self)
+{
+    BurnerControlContext_DownPressed(&self->_fsm);
+}
+

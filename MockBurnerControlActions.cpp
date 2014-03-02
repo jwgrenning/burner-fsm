@@ -18,7 +18,7 @@ void BurnerControl_Action_StopLedAnnimation(struct BurnerControl * self)
 void BurnerControl_Action_LedOn(struct BurnerControl * self, int ledNumber)
 {
         mock("burner").actualCall("BurnerControl_Action_LedOn")
-                      .withParameter("ledNumber", 8);
+                      .withParameter("ledNumber", ledNumber);
 }
 
 void BurnerControl_Action_SetPowerTo(struct BurnerControl *, int powerLevel)

@@ -13,6 +13,7 @@ void BurnerControl_Destroy(struct BurnerControl *);
 
 void BurnerControl_PowerButtonPressed(struct BurnerControl *);
 void BurnerControl_UpPressed(struct BurnerControl *);
+void BurnerControl_DownPressed(struct BurnerControl *);
 
 void BurnerControl_Action_StartLedAnnimation(struct BurnerControl *);
 void BurnerControl_Action_StopLedAnnimation(struct BurnerControl *);
