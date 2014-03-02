@@ -20,6 +20,9 @@ void BurnerControl_Action_StartLedAnnimation(struct BurnerControl *);
 void BurnerControl_Action_StopLedAnnimation(struct BurnerControl *);
 void BurnerControl_Action_LedOn(struct BurnerControl *, int ledNumber);
 void BurnerControl_Action_AllLedsOff(struct BurnerControl *);
+void BurnerControl_Action_LedUpOne(struct BurnerControl *);
+
 void BurnerControl_Action_SetPowerTo(struct BurnerControl *, int powerLevel);
+void BurnerControl_Action_PowerUpOneLevel(struct BurnerControl *);
 
 #endif

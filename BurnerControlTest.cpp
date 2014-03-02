@@ -47,7 +47,7 @@ TEST(BurnerControlStartState, press_on_twice_stops_annimation)
     BurnerControl_PowerButtonPressed(burnerControl);
 }
 
-TEST(BurnerControlStartState, press_on_then_up_full_power)
+TEST(BurnerControlStartState, select_high)
 {
     mock("burner").expectOneCall("BurnerControl_Action_StartLedAnnimation");
     mock("burner").expectOneCall("BurnerControl_Action_StopLedAnnimation");
@@ -58,7 +58,7 @@ TEST(BurnerControlStartState, press_on_then_up_full_power)
     BurnerControl_UpPressed(burnerControl);
 }
 
-TEST(BurnerControlStartState, press_on_then_down_low_power)
+TEST(BurnerControlStartState, select_low)
 {
     mock("burner").expectOneCall("BurnerControl_Action_StartLedAnnimation");
     mock("burner").expectOneCall("BurnerControl_Action_StopLedAnnimation");
@@ -67,5 +67,19 @@ TEST(BurnerControlStartState, press_on_then_down_low_power)
 
     BurnerControl_PowerButtonPressed(burnerControl);
     BurnerControl_DownPressed(burnerControl);
+}
+
+TEST(BurnerControlStartState, medium_low_power)
+{
+    mock("burner").expectOneCall("BurnerControl_Action_StartLedAnnimation");
+    mock("burner").expectOneCall("BurnerControl_Action_StopLedAnnimation");
+    mock("burner").expectOneCall("BurnerControl_Action_LedOn").withParameter("ledNumber", 1);
+    mock("burner").expectOneCall("BurnerControl_Action_SetPowerTo").withParameter("powerLevel", 10);
+    mock("burner").expectOneCall("BurnerControl_Action_LedUpOne");
+    mock("burner").expectOneCall("BurnerControl_Action_PowerUpOneLevel");
+
+    BurnerControl_PowerButtonPressed(burnerControl);
+    BurnerControl_DownPressed(burnerControl);
+    BurnerControl_UpPressed(burnerControl);
 }
 

@@ -63,7 +63,10 @@ Heating
                             }
        UpPressed
                     Heating
-                            {}
+                            {
+                                Action_LedUpOne();
+                                Action_PowerUpOneLevel();
+                            }
     
        DownPressed
                     nil
