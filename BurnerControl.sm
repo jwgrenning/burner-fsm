@@ -71,8 +71,11 @@ Heating
                             }
     
        DownPressed
-                    nil
-                            {}
+                    Heating
+                            {
+                                Action_LedDownOne();
+                                Action_PowerDownOneLevel();
+                            }
     
 }
 
